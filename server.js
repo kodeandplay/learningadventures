@@ -21,7 +21,10 @@ router.post('/', (req, res) => {
   const text = 'INSERT INTO word(entry, meaning, example) VALUES($1, $2, $3)'
   const values = [word, meaning, example]
   db.query(text, values, (err, data) => {
-    if(err) return res.json({ok: false})
+    if(err) {
+      console.log('err:', err)
+      return res.json({ok: false})
+    }
     res.redirect('/')
   })
 })
@@ -32,7 +35,10 @@ router.get('/add', (req, res) => {
 
 router.get('/', (req, res) => {
   db.query('SELECT entry, meaning, example FROM word', null, (err, data) => {
-    if(err) return res.json({ok: false})
+    if(err) {
+      console.log('err:', err)
+      return res.json({ok: false})
+    }
     res.render('index', { words: data.rows })
   })
 })
