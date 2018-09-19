@@ -1,0 +1,28 @@
+{
+  "name": "Seb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodeandplay/learningadventures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kodeandplay/learningadventures/issues"
+  },
+  "homepage": "https://github.com/kodeandplay/learningadventures#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "morgan": "^1.9.1",
+    "pg": "^7.4.3"
+  }
+}

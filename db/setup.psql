@@ -1,0 +1,13 @@
+
+CREATE TABLE IF NOT EXISTS word (
+  id serial primary key not null,
+  entry varchar(50) unique,
+  meaning varchar(100),
+  example varchar(200),
+  created_on timestamp not null default CURRENT_DATE
+);
+
+INSERT INTO word(entry, meaning, example)
+VALUES
+('copacetic', 'in excellent order', 'When everything is arranged perfectly in a satisfactory way, this is an example of a time when everything is copacetic.'),
+('serendipity','the occurrence and development of events by chance in a happy or beneficial way','An example of serendipity is finding a twenty dollar bill in the pocket of a coat you have not worn in awhile.');
