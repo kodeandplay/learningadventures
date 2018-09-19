@@ -1,5 +1,5 @@
 const {Pool} = require('pg')
-const creds = require('../creds.json')
+const creds = require('../../creds.json')
 
 const config = {
   user: creds.user,
