@@ -21,6 +21,9 @@
         </h4>
       </div>
       <div class="panel-body"><%= word.example %></div>
+      <% if(word.citation.length) { %>
+        <div class="panel-footer"><%= word.citation %></div>
+      <% } %>
     </div>
     <% }); %>
   </div>

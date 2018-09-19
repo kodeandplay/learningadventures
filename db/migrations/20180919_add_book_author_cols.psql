@@ -1,0 +1,3 @@
+ALTER TABLE word
+ADD COLUMN book varchar(100) not null default '',
+ADD COLUMN author varchar(100) not null default '';

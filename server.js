@@ -17,9 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/', router)
 
 router.post('/', (req, res) => {
-  const {word, meaning, example} = req.body
-  const text = 'INSERT INTO word(entry, meaning, example) VALUES($1, $2, $3)'
-  const values = [word, meaning, example]
+  const {word, meaning, example, author, book} = req.body
+  const text = 'INSERT INTO word(entry, meaning, example, author, book) VALUES($1, $2, $3, $4, $5)'
+  const values = [word.trim(), meaning.trim(), example.trim(), author.trim(), book.trim()]
   db.query(text, values, (err, data) => {
     if(err) {
       console.log('err:', err)
@@ -34,12 +34,22 @@ router.get('/add', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-  db.query('SELECT entry, meaning, example FROM word', null, (err, data) => {
+  db.query('SELECT entry, meaning, example, book, author FROM word', null, (err, data) => {
     if(err) {
       console.log('err:', err)
       return res.json({ok: false})
     }
-    res.render('index', { words: data.rows })
+    let citation
+    const words = data.rows.map(({entry, meaning, example, book, author}) => {
+      if(book.length && author.length) {
+        citation = book + ' - ' + author;
+      } else {
+        citation = book + author
+      }
+
+      return { entry, meaning, example, citation }
+    })
+    res.render('index', { words })
   })
 })
 
