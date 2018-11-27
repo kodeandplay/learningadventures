@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/kodeandplay/learningadventures#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.4.0",
     "morgan": "^1.9.1",
     "pg": "^7.4.3"
   }

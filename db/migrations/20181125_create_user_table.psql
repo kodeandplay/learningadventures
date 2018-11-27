@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS account (
+  id serial primary key not null,
+  email varchar(100) unique,
+  passwd varchar(300),
+  created_at date default CURRENT_DATE,
+  updated_at date default CURRENT_DATE,
+  active bool default true,
+  administrator bool default false
+);
+
+
