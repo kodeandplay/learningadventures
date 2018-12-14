@@ -51,7 +51,7 @@ router.post('/signup', (req, res) => {
       console.log('err:', err)
       return res.json({ok: false})
     }
-    res.redirect('/')
+    res.redirect('/account')
   })
 });
 
