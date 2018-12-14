@@ -5,11 +5,11 @@ const bcrypt = require('bcrypt-nodejs')
 const creds = require('../../creds.json')
 const db = require('../db')
 
-/*
+
 router.get('/signup', (req, res) => {
   res.render('account/signup')
 })
-*/
+
 
 router.get('/', (req, res) => {
   res.render('account/signin')
