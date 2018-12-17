@@ -16,7 +16,7 @@ const app = express()
 
 app.set('view engine','ejs')
 app.set('views', './views')
-// app.use('/public', express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/assets'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
@@ -43,7 +43,7 @@ router.get('/add', middleware, (req, res) => {
 })
 
 router.get('/', (req, res) => {
-  db.query('SELECT entry, meaning, example, book, author FROM word', null, (err, data) => {
+  db.query('SELECT entry, meaning, example, book, author FROM word ORDER BY created_on DESC', null, (err, data) => {
     if(err) {
       console.log('err:', err)
       return res.json({ok: false})

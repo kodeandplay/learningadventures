@@ -6,26 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Learning Adventures</title>
 
+  <link rel="stylesheet" href="./styles/main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body>
-  <div class="container" style="background-image: url(assets/images/twilight_forest.jpeg);">
+<body style="background:url(./images/twilight_forest.jpeg) no-repeat center center fixed;background-size:cover;">
+  <div class="container">
     <div class="page-header">
-      <h1>Learning Adventures</h1>
+      <h1 class="text-color">Learning Adventures</h1>
     </div>
-    <% words.forEach(word => { %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          <%= word.entry %> : <%= word.meaning %>
-        </h4>
+    <div style="height:500px;overflow:auto;">
+      <% words.forEach(word => { %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <%= word.entry %> : <%= word.meaning %>
+          </h4>
+        </div>
+        <div class="panel-body"><%= word.example %></div>
+        <% if(word.citation.length) { %>
+          <div class="panel-footer"><%= word.citation %></div>
+        <% } %>
       </div>
-      <div class="panel-body"><%= word.example %></div>
-      <% if(word.citation.length) { %>
-        <div class="panel-footer"><%= word.citation %></div>
-      <% } %>
+      <% }); %>
     </div>
-    <% }); %>
   </div>
 </body>
 </html>
