@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learning Adventures</title>
+  <title>flicks</title>
 
   <link rel="stylesheet" href="./styles/main.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -24,21 +24,25 @@
   </nav>
   <div class="container" style="margin-top:20px">
     <div class="page-header">
-      <h1 class="text-color">Learning Adventures</h1>
+      <h1 class="text-color">flicks</h1>
     </div>
     <div style="height:500px;overflow:auto;">
-      <% words.forEach(word => { %>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <%= word.entry %> : <%= word.meaning %>
-          </h4>
-        </div>
-        <div class="panel-body"><%= word.example %></div>
-        <% if(word.citation.length) { %>
-          <div class="panel-footer"><%= word.citation %></div>
+      <% flicks.forEach((flick, idx) => { %>
+        <% if(idx % 3 == 0) { %>
+        <div class="row">
         <% } %>
-      </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+              <iframe width="350" height="200" src="https://www.youtube.com/embed/<%= flick.trailer %>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <div class="caption">
+                <h3><%= flick.movie %></h3>
+                <p><%= flick.synopsis %></p>
+              </div>
+            </div>
+          </div>
+        <% if(idx % 3 == 2) { %>
+        </div>
+        <% } %>      
       <% }); %>
     </div>
   </div>

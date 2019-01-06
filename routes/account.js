@@ -17,16 +17,16 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const {email, password} = req.body
-  const text = 'SELECT email, passwd FROM account WHERE email = $1'
+  const text = 'SELECT id, email, passwd FROM account WHERE email = $1'
   db.query(text, [email], (err, data) => {
     if(err) {
       console.log('err:', err)
       return res.json({ok: false})
     }
 
-    const hash = data.rows[0].passwd
-    if(bcrypt.compareSync(password, hash)) {
-      const token = jwt.sign({email}, creds.jwtsign, { expiresIn: '1 days' })
+    const {passwd, id} = data.rows[0]
+    if(bcrypt.compareSync(password, passwd)) {
+      const token = jwt.sign({email, id}, creds.jwtsign, { expiresIn: '1 days' })
 
       res.cookie('token', token)
       res.redirect('/')

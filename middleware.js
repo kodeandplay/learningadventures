@@ -8,18 +8,19 @@ module.exports = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, creds.jwtsign)
-    const {email} = decoded;
+    const {email, id} = decoded;
+    
     if(email) {
       db.query('SELECT email FROM account WHERE email = $1', [email], (err, data) => {
         if(err || data.rowCount !== 1) {
           return res.redirect('/')
         }
+        res.locals.id = id
+        next()
       })
     }
   } catch(err) {
     console.log('err:', err)
     return res.redirect('/')
   }
-
-  next()
 }

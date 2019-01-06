@@ -1,0 +1,15 @@
+CREATE TABLE IF NOT EXISTS flick (
+  id serial primary key not null,
+  movie varchar(300),
+  trailer varchar(300),
+  synopsis varchar(800),
+  rating varchar(100),
+  author integer references account(id),
+  created_at date default CURRENT_DATE,
+  updated_at date default CURRENT_DATE
+);
+
+INSERT INTO flick(movie, trailer, synopsis, rating, author)
+VALUES
+('bumblebee','https://youtu.be/lcwmDAYt22k','On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie (Hailee Steinfeld), on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken. When Charlie revives him, she quickly learns this is no ordinary, yellow VW bug.','fire',1)
+

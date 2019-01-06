@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>waiigb</title>
+
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <div class="page-header">
+      <h1>flick</h1>
+    </div>
+    <form action="/flick" method="post">
+      <div class="form-group">
+        <label class="control-label">movie</label>
+        <input type="text" class="form-control" name="movie" placeholder="movie">
+      </div>
+      <div class="form-group">
+        <label class="control-label">trailer</label>
+        <input type="text" class="form-control" name="trailer" placeholder="trailer">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="synopsis">synopsis</label>
+        <textarea class="form-control" id="synopsis" name="synopsis" rows="5" placeholder="wild wild thoughts..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="control-label">rating</label>
+        
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" name="rating" value="lame">
+          <label class="custom-control-label flick-rating">lame</label>
+          <span class="glyphicon glyphicon-thumbs-down rating-lame" aria-hidden="true"></span>
+        </div>
+  
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" name="rating" value="meh" checked>
+          <label class="custom-control-label flick-rating">meh...it's a movie</label>
+          <span class="glyphicon glyphicon-film rating-meh" aria-hidden="true"></span>
+        </div>
+        
+        <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" name="rating" value="fire">
+          <label class="custom-control-label flick-rating">fire</label>
+          <span class="glyphicon glyphicon-fire rating-fire" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">add flick</button>
+      </div>
+    </form>
+  </div>
+  
+</body>
+</html>
